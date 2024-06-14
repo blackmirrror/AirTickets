@@ -23,3 +23,6 @@ rootProject.name = "Air Tickets"
 include(":app")
 include(":api")
 include(":data")
+include(":common")
+include(":features:main")
+include(":features:plug")
