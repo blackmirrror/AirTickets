@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/dark_background"
     tools:context=".MainFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Main" />
+        android:id="@+id/title"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:maxWidth="200dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/title_main"
+        android:textColor="@color/title_only"
+        android:paddingBottom="32dp"
+        style="@style/TextViewTitle"/>
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:padding="32dp"
+        android:backgroundTint="@color/dark_primary_container"
+        app:cardCornerRadius="16dp">
+
+        <include
+            android:id="@+id/search_layout"
+            layout="@layout/search_field" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/title_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:text="@string/title_music"
+        android:textColor="@color/dark_on_background"
+        style="@style/TextViewTitle"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_music"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_music"/>
+
+    <ProgressBar
+        android:id="@+id/main_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        style="@style/CircularProgress"/>
+
+</LinearLayout>
