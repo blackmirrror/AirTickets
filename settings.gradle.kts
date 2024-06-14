@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Air Tickets"
 include(":app")
- 
+include(":api")
+include(":data")
