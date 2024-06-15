@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/dark_background"
+    android:background="@color/background"
     tools:context=".MainFragment">
 
     <TextView
@@ -17,7 +17,7 @@
         android:gravity="center"
         android:layout_height="wrap_content"
         android:text="@string/title_main"
-        android:textColor="@color/title_only"
+        android:textColor="@color/title_main_only"
         android:paddingBottom="32dp"
         style="@style/TextViewTitle"/>
 
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:padding="32dp"
-        android:backgroundTint="@color/dark_primary_container"
+        android:backgroundTint="@color/primary_container"
         app:cardCornerRadius="16dp">
 
         <include
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
         android:text="@string/title_music"
-        android:textColor="@color/dark_on_background"
+        android:textColor="@color/on_background"
         style="@style/TextViewTitle"/>
 
     <androidx.recyclerview.widget.RecyclerView

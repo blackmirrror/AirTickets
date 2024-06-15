@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_label_path">Сложный маршрут</string>
+    <string name="search_label_ball">Куда угодно</string>
+    <string name="search_label_calendar">Выходные</string>
+    <string name="search_label_fire">Горячие билеты</string>
+
+    <string name="search_text_description">Популярное направление</string>
+
+    <string name="place_one">Стамбул</string>
+    <string name="place_two">Сочи</string>
+    <string name="place_three">Пхукет</string>
+    <string name="place_default">Турция</string>
+</resources>

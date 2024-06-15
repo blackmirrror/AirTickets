@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_container">
+
+    <ImageButton
+        android:id="@+id/search_btn_path"
+        android:src="@drawable/ic_path"
+        android:backgroundTint="@color/green"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/search_btn_ball"
+        style="@style/SearchBtn"/>
+
+    <ImageButton
+        android:id="@+id/search_btn_ball"
+        android:src="@drawable/ic_ball"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/search_btn_path"
+        app:layout_constraintEnd_toStartOf="@id/search_btn_calendar"
+        style="@style/SearchBtn"/>
+
+    <ImageButton
+        android:id="@+id/search_btn_calendar"
+        android:src="@drawable/ic_calendar"
+        android:backgroundTint="@color/dark_blue"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/search_btn_ball"
+        app:layout_constraintEnd_toStartOf="@id/search_btn_fire"
+        style="@style/SearchBtn"/>
+
+    <ImageButton
+        android:id="@+id/search_btn_fire"
+        android:src="@drawable/ic_fire"
+        android:backgroundTint="@color/red"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/search_btn_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/SearchBtn"/>
+
+    <TextView
+        android:id="@+id/search_label_path"
+        android:text="@string/search_label_path"
+        app:layout_constraintTop_toBottomOf="@id/search_btn_path"
+        app:layout_constraintStart_toStartOf="@id/search_btn_path"
+        app:layout_constraintEnd_toEndOf="@id/search_btn_path"
+        style="@style/SearchLabel"/>
+
+    <TextView
+        android:id="@+id/search_label_ball"
+        android:text="@string/search_label_ball"
+        app:layout_constraintTop_toBottomOf="@id/search_btn_ball"
+        app:layout_constraintStart_toStartOf="@id/search_btn_ball"
+        app:layout_constraintEnd_toEndOf="@id/search_btn_ball"
+        style="@style/SearchLabel"/>
+
+    <TextView
+        android:id="@+id/search_label_calendar"
+        android:text="@string/search_label_calendar"
+        app:layout_constraintTop_toBottomOf="@id/search_btn_calendar"
+        app:layout_constraintStart_toStartOf="@id/search_btn_calendar"
+        app:layout_constraintEnd_toEndOf="@id/search_btn_calendar"
+        style="@style/SearchLabel"/>
+
+    <TextView
+        android:id="@+id/search_label_fire"
+        android:text="@string/search_label_fire"
+        app:layout_constraintTop_toBottomOf="@id/search_btn_fire"
+        app:layout_constraintStart_toStartOf="@id/search_btn_fire"
+        app:layout_constraintEnd_toEndOf="@id/search_btn_fire"
+        style="@style/SearchLabel"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

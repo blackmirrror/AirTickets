@@ -8,21 +8,27 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import ru.blackmirrror.airtickets.common.BottomNavigationVisibilityManager
+import ru.blackmirrror.airtickets.common.SearchNavigationHandler
 import ru.blackmirrror.airtickets.databinding.ActivityMainBinding
+import ru.blackmirrror.airtickets.search.SearchFragment
 
 
-class MainActivity : AppCompatActivity(), BottomNavigationVisibilityManager {
+class MainActivity : AppCompatActivity(), BottomNavigationVisibilityManager,
+    SearchNavigationHandler {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -37,7 +43,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationVisibilityManager {
     private fun setNavigation() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragment_container) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         binding.bottomNavigation.setupWithNavController(navController)
     }
@@ -50,5 +56,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationVisibilityManager {
     override fun hideBottomNavigationBar() {
         binding.separator.visibility = View.GONE
         binding.bottomNavigation.visibility = View.GONE
+    }
+
+    override fun actionMainFragmentToSearchFragment() {
+        val searchFragment = SearchFragment()
+        searchFragment.show(supportFragmentManager, SearchFragment.TAG)
+    }
+
+    override fun actionSearchFragmentToPlugSearchFragment() {
+        navController.navigate(R.id.action_mainFragment_to_plugNavGraph)
     }
 }

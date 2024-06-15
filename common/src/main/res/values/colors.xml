@@ -4,17 +4,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
 
-    <color name="dark_background">#FF0C0C0C</color>
-    <color name="dark_on_background">#FFFFFFFF</color>
-    <color name="dark_primary_container">#FF2F3035</color>
-    <color name="dark_secondary_container">#FF3E3F43</color>
-    <color name="dark_on_secondary_container">#FFFFFFFF</color>
-
-    <color name="dark_hint_on_secondary_container">#FF9F9F9F</color>
-
-    <color name="separator">#FF5E5F61</color>
-    <color name="separator_nav_bar">#FF1D1E20</color>
-    <color name="title_only">#FFD9D9D9</color>
+    <color name="background">#FFf3f3f3</color>
+    <color name="on_background">#FF000000</color>
+    <color name="primary_container">#FFdbdad6</color>
+    <color name="secondary_container">#FFd0cfca</color>
+    <color name="on_secondary_container">#FF606060</color>
+    <color name="surface_container">#FFe2e1df</color>
+    <color name="custom_text_field_background">#FFc1c0bc</color>
+    <color name="separator_first_only">#FFa1a09e</color>
+    <color name="title_main_only">#FF262626</color>
 
     <color name="blue">#FF2269BC</color>
     <color name="dark_blue">#FF00427D</color>

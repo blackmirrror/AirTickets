@@ -6,4 +6,7 @@
     <string name="label_shorter">Короче</string>
     <string name="label_subscribes">Подписки</string>
     <string name="label_profile">Профиль</string>
+
+    <string name="label_search">Поиск</string>
+    <string name="label_plug">Заглушка</string>
 </resources>

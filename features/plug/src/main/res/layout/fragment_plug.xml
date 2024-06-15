@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_background"
+    android:background="@color/background"
     tools:context=".PlugFragment">
 
     <TextView
@@ -14,7 +14,7 @@
         android:gravity="center"
         android:layout_height="wrap_content"
         android:text="@string/title_plug"
-        android:textColor="@color/title_only"
+        android:textColor="@color/title_main_only"
         style="@style/TextViewTitle"/>
 
 </RelativeLayout>

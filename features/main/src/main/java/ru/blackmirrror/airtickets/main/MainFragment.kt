@@ -1,12 +1,10 @@
 package ru.blackmirrror.airtickets.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -15,19 +13,20 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.blackmirrror.airtickets.common.BottomNavigationVisibilityManager
+import ru.blackmirrror.airtickets.common.SearchNavigationHandler
 import ru.blackmirrror.airtickets.data.models.NoConnection
 import ru.blackmirrror.airtickets.data.models.Offer
 import ru.blackmirrror.airtickets.data.models.ResultState
 import ru.blackmirrror.airtickets.data.models.ServerError
 import ru.blackmirrror.airtickets.main.databinding.FragmentMainBinding
 import ru.blackmirrror.airtickets.main.utils.HorizontalItemDecoration
-import ru.blackmirrror.airtickets.common.R as CommonR
 
 
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
     private var bottomNavigationManager: BottomNavigationVisibilityManager? = null
+    private var searchNavigationHandler: SearchNavigationHandler? = null
 
     private val viewModel by viewModel<MainViewModel>()
     private lateinit var offerAdapter: OfferAdapter
@@ -35,6 +34,7 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bottomNavigationManager = activity as? BottomNavigationVisibilityManager
+        searchNavigationHandler = activity as? SearchNavigationHandler
     }
 
     override fun onCreateView(
@@ -91,7 +91,7 @@ class MainFragment : Fragment() {
         binding.searchLayout.searchFrom.setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_DONE -> {
-                    //todo
+                    searchNavigationHandler?.actionMainFragmentToSearchFragment()
                     true
                 }
                 else -> false
@@ -106,5 +106,6 @@ class MainFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         bottomNavigationManager = null
+        searchNavigationHandler = null
     }
 }

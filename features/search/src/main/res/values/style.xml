@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SearchBtn">
+        <item name="android:tint">@color/white</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/button_back</item>
+    </style>
+    <style name="SearchLabel">
+        <item name="android:textColor">@color/on_background</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/sfpd_regular</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxWidth">100dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingTop">8dp</item>
+    </style>
+</resources>

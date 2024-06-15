@@ -59,4 +59,5 @@ dependencies {
     implementation(project(":common"))
     implementation(project(":features:main"))
     implementation(project(":features:plug"))
+    implementation(project(":features:search"))
 }
