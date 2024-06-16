@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/transparent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_ticket_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_8dp"
+        android:backgroundTint="@color/surface_container"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <TextView
+            android:id="@+id/item_ticket_price"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/TextView.Title"
+            tools:text="6 990 ₽"/>
+
+        <View
+            android:id="@+id/item_ticket_indicator"
+            app:layout_constraintTop_toTopOf="@id/item_ticket_time_from"
+            app:layout_constraintBottom_toBottomOf="@id/item_ticket_airports_from"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/CircleIndicator"/>
+
+        <TextView
+            android:id="@+id/item_ticket_time_from"
+            android:layout_marginStart="8dp"
+            android:drawableEnd="@drawable/ic_dash"
+            android:drawableTint="@color/on_secondary_container"
+            android:drawablePadding="2dp"
+            app:layout_constraintStart_toEndOf="@id/item_ticket_indicator"
+            app:layout_constraintTop_toBottomOf="@id/item_ticket_price"
+            style="@style/TextView.Basic.Italic"
+            tools:text="03:15"/>
+
+        <TextView
+            android:id="@+id/item_ticket_time_to"
+            app:layout_constraintTop_toTopOf="@id/item_ticket_time_from"
+            app:layout_constraintStart_toEndOf="@id/item_ticket_time_from"
+            style="@style/TextView.Basic.Italic"
+            tools:text="07:10"/>
+
+        <TextView
+            android:id="@+id/item_ticket_airports_from"
+            app:layout_constraintTop_toBottomOf="@id/item_ticket_time_from"
+            app:layout_constraintStart_toStartOf="@id/item_ticket_time_from"
+            style="@style/TextView.Basic.Italic.Variant"
+            tools:text="AER"/>
+
+        <TextView
+            android:id="@+id/item_ticket_airports_to"
+            app:layout_constraintTop_toBottomOf="@id/item_ticket_time_to"
+            app:layout_constraintStart_toStartOf="@id/item_ticket_time_to"
+            style="@style/TextView.Basic.Italic.Variant"
+            tools:text="VKO"/>
+
+        <TextView
+            android:id="@+id/item_ticket_time_in"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/item_ticket_time_from"
+            app:layout_constraintStart_toEndOf="@id/item_ticket_time_to"
+            style="@style/TextView.Basic.Regular"
+            tools:text="4ч в пути" />
+
+        <TextView
+            android:id="@+id/item_ticket_has_transfer"
+            android:drawableStart="@drawable/ic_slash"
+            android:drawableTint="@color/on_secondary_container"
+            app:layout_constraintTop_toTopOf="@id/item_ticket_time_from"
+            app:layout_constraintStart_toEndOf="@id/item_ticket_time_in"
+            style="@style/TextView.Basic.Regular"
+            tools:text="Без пересадок"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/label_best_option"
+        android:background="@drawable/background_16dp"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:layout_gravity="top|start"
+        style="@style/TextView.Basic.Italic"
+        tools:text="Самый удобный"/>
+
+</FrameLayout>

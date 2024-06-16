@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/search_btn_path"
         app:layout_constraintStart_toStartOf="@id/search_btn_path"
         app:layout_constraintEnd_toEndOf="@id/search_btn_path"
-        style="@style/SearchLabel"/>
+        style="@style/TextView.Basic.Regular.SearchLabel"/>
 
     <TextView
         android:id="@+id/search_label_ball"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@id/search_btn_ball"
         app:layout_constraintStart_toStartOf="@id/search_btn_ball"
         app:layout_constraintEnd_toEndOf="@id/search_btn_ball"
-        style="@style/SearchLabel"/>
+        style="@style/TextView.Basic.Regular.SearchLabel"/>
 
     <TextView
         android:id="@+id/search_label_calendar"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/search_btn_calendar"
         app:layout_constraintStart_toStartOf="@id/search_btn_calendar"
         app:layout_constraintEnd_toEndOf="@id/search_btn_calendar"
-        style="@style/SearchLabel"/>
+        style="@style/TextView.Basic.Regular.SearchLabel"/>
 
     <TextView
         android:id="@+id/search_label_fire"
@@ -71,8 +71,6 @@
         app:layout_constraintTop_toBottomOf="@id/search_btn_fire"
         app:layout_constraintStart_toStartOf="@id/search_btn_fire"
         app:layout_constraintEnd_toEndOf="@id/search_btn_fire"
-        style="@style/SearchLabel"/>
-
-
+        style="@style/TextView.Basic.Regular.SearchLabel"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

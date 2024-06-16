@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="8dp"
+    android:background="@color/surface_container">
+
+    <View
+        android:id="@+id/item_flight_indicator"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/CircleIndicator"/>
+
+    <TextView
+        android:id="@+id/item_flight_airline"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/item_flight_indicator"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/TextView.Basic.Italic"
+        tools:text="Уральские авиалинии"/>
+
+    <TextView
+        android:id="@+id/item_flight_price"
+        android:textColor="@color/blue"
+        android:drawableEnd="@drawable/ic_right_row"
+        android:drawableTint="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/TextView.Basic.Italic"
+        tools:text="2 390 ₽ "/>
+
+    <TextView
+        android:id="@+id/item_flight_times"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@id/item_flight_airline"
+        app:layout_constraintTop_toBottomOf="@id/item_flight_airline"
+        style="@style/TextView.Basic.Regular"
+        tools:text="07:00 09:10 10:00 11:00 12:00 13:00..."/>
+
+    <View
+        android:layout_marginTop="8dp"
+        android:background="@color/custom_text_field_background"
+        app:layout_constraintTop_toBottomOf="@id/item_flight_times"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/Separator"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

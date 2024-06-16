@@ -3,18 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="200dp"
+    android:padding="16dp"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@drawable/search_fragment_back"
+    android:background="@drawable/background_container"
     tools:context=".SearchFragment">
 
     <View
         android:layout_width="64dp"
         android:layout_height="5dp"
-        android:layout_marginTop="16dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/scroller_back"/>
+        android:background="@drawable/background_scroller"/>
 
     <include
         android:id="@+id/places_search"
@@ -31,11 +30,10 @@
         android:id="@+id/recycler_places"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="8dp"
-        android:background="@drawable/recycler_back"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
+        android:background="@drawable/background_16dp"
         android:backgroundTint="@color/secondary_container"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_search_place"

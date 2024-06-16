@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:paddingBottom="16dp"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/flight_return_date"
+        android:drawableStart="@drawable/ic_add"
+        android:text="@string/label_return_default"
+        android:layout_marginEnd="8dp"
+        style="@style/TextView.Basic.Italic.ButtomFlight"/>
+
+    <TextView
+        android:id="@+id/flight_departure_date"
+        android:layout_marginEnd="8dp"
+        style="@style/TextView.Basic.Italic.ButtomFlight"
+        tools:text="24 фев, сб"/>
+
+    <TextView
+        android:id="@+id/flight_passengers_class"
+        android:drawableStart="@drawable/ic_profile"
+        android:text="@string/label_passengers_default"
+        android:layout_marginEnd="8dp"
+        style="@style/TextView.Basic.Italic.ButtomFlight"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/flight_filter"-->
+<!--        android:drawableStart="@drawable/ic_filter"-->
+<!--        android:text="@string/label_filter_default"-->
+<!--        style="@style/ButtomFlight"/>-->
+</LinearLayout>

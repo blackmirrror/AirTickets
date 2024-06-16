@@ -60,4 +60,6 @@ dependencies {
     implementation(project(":features:main"))
     implementation(project(":features:plug"))
     implementation(project(":features:search"))
+    implementation(project(":features:flight"))
+    implementation(project(":features:ticket"))
 }

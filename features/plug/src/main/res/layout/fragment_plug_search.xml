@@ -15,6 +15,6 @@
         android:layout_height="wrap_content"
         android:text="@string/title_plug"
         android:textColor="@color/title_main_only"
-        style="@style/TextViewTitle"/>
+        style="@style/TextView.Title"/>
 
 </RelativeLayout>

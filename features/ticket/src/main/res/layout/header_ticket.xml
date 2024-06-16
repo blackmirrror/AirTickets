@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp"
+    android:background="@color/primary_container">
+
+    <ImageButton
+        android:id="@+id/ticket_btn_back"
+        android:src="@drawable/ic_back"
+        android:tint="@color/blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/SearchImageButton"/>
+
+    <TextView
+        android:id="@+id/ticket_path"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/ticket_btn_back"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/TextView.Subtitle"
+        tools:text="Москва - Сочи"/>
+
+    <TextView
+        android:id="@+id/ticket_data"
+        app:layout_constraintStart_toStartOf="@id/ticket_path"
+        app:layout_constraintTop_toBottomOf="@id/ticket_path"
+        style="@style/TextView.Basic.Italic.Variant"
+        tools:text="23 февраля, 1 пассажир"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

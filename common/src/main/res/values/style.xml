@@ -1,25 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="SearchEditText">
+
+    <style name="TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextView.Title">
+        <item name="android:fontFamily">@font/sfpd_semibold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/on_background</item>
+    </style>
+
+    <style name="TextView.Title.Variant">
+        <item name="android:textColor">@color/title_main_only</item>
+    </style>
+
+
+    <style name="TextView.Subtitle">
+        <item name="android:fontFamily">@font/sfpd_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/on_background</item>
+    </style>
+
+    <style name="TextView.Subtitle.EditText">
+        <item name="android:layout_width">0dp</item>
         <item name="android:background">@null</item>
         <item name="android:textColorHint">@color/on_secondary_container</item>
-        <item name="android:textColor">@color/on_background</item>
-        <item name="fontFamily">@font/sfpd_semibold</item>
-        <item name="android:textSize">16sp</item>
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>
         <item name="android:inputType">text</item>
         <item name="android:imeOptions">actionDone</item>
         <item name="android:digits">йцукенгшщзхъэждлорпавыфячсмитьбю ЙЦУКЕНГШЩЗХЪЭЖДЛОРПАВЫФЯЧСМИТЬБЮ</item>
-
     </style>
 
-    <style name="TextViewTitle">
-        <item name="fontFamily">@font/sfpd_semibold</item>
-        <item name="android:textSize">22sp</item>
+    <style name="TextView.Subtitle.EditText.WithDrawable">
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:drawableTint">@color/on_background</item>
+    </style>
+
+
+    <style name="TextView.Basic">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/on_background</item>
+    </style>
+
+    <style name="TextView.Basic.Regular">
+        <item name="android:fontFamily">@font/sfpd_regular</item>
+    </style>
+
+    <style name="TextView.Basic.Regular.Variant">
+        <item name="android:textColor">@color/on_secondary_container</item>
+    </style>
+
+    <style name="TextView.Basic.Italic">
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">@font/sfpd_medium</item>
+    </style>
+
+    <style name="TextView.Basic.Italic.Variant">
+        <item name="android:textColor">@color/on_secondary_container</item>
+    </style>
+
+
+
+    <style name="SearchImageButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="CircleIndicator">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:background">@drawable/circle_indicator</item>
     </style>
 
     <style name="CircularProgress" parent="Theme.AppCompat.Light">
         <item name="colorAccent">@color/blue</item>
     </style>
+
+    <style name="Separator">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/separator_first_only</item>
+    </style>
+
 </resources>

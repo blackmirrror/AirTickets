@@ -11,38 +11,31 @@
 
     <TextView
         android:id="@+id/title"
+        android:paddingBottom="32dp"
         android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
         android:maxWidth="200dp"
         android:gravity="center"
-        android:layout_height="wrap_content"
         android:text="@string/title_main"
-        android:textColor="@color/title_main_only"
-        android:paddingBottom="32dp"
-        style="@style/TextViewTitle"/>
+        style="@style/TextView.Title.Variant"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:padding="32dp"
         android:backgroundTint="@color/primary_container"
         app:cardCornerRadius="16dp">
 
         <include
             android:id="@+id/search_layout"
-            layout="@layout/search_field" />
+            layout="@layout/search_field_main" />
 
     </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/title_music"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:paddingBottom="16dp"
         android:text="@string/title_music"
-        android:textColor="@color/on_background"
-        style="@style/TextViewTitle"/>
+        style="@style/TextView.Title"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_music"

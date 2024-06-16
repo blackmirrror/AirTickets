@@ -1,59 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/search_fields_places"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="16dp"
+    android:background="@drawable/background_16dp"
     android:backgroundTint="@color/secondary_container"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="16dp"
-    android:elevation="0dp">
+    android:padding="16dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+    <EditText
+        android:id="@+id/search_from_places"
+        style="@style/TextView.Subtitle.EditText.WithDrawable"
+        android:drawableStart="@drawable/ic_airplane"
+        android:drawableTint="@color/separator_first_only"
+        android:hint="@string/hint_search_from"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Москва" />
 
-        <EditText
-            android:id="@+id/search_from_places"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_search_from"
-            android:drawableStart="@drawable/ic_airplane"
-            android:drawablePadding="8dp"
-            android:drawableTint="@color/custom_text_field_background"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            style="@style/SearchEditText"
-            tools:text="Москва"/>
+    <View
+        android:id="@+id/search_separator_places"
+        android:layout_marginVertical="8dp"
+        app:layout_constraintBottom_toTopOf="@id/search_to_places"
+        app:layout_constraintStart_toStartOf="@id/search_from_places"
+        app:layout_constraintTop_toBottomOf="@id/search_from_places"
+        style="@style/Separator"/>
 
-        <View
-            android:id="@+id/search_separator_places"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:layout_marginVertical="8dp"
-            android:background="@color/custom_text_field_background"
-            app:layout_constraintStart_toStartOf="@id/search_from_places"
-            app:layout_constraintTop_toBottomOf="@id/search_from_places"
-            app:layout_constraintBottom_toTopOf="@id/search_to_places"/>
+    <EditText
+        android:id="@+id/search_to_places"
+        style="@style/TextView.Subtitle.EditText.WithDrawable"
+        android:drawableStart="@drawable/ic_search"
+        android:drawableEnd="@drawable/ic_close"
+        android:hint="@string/hint_search_to"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/search_from_places"
+        app:layout_constraintTop_toBottomOf="@id/search_separator_places" />
 
-        <EditText
-            android:id="@+id/search_to_places"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_search_to"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp"
-            android:drawableEnd="@drawable/ic_close"
-            android:drawableTint="@color/on_background"
-            app:layout_constraintTop_toBottomOf="@id/search_separator_places"
-            app:layout_constraintStart_toStartOf="@id/search_from_places"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            style="@style/SearchEditText"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

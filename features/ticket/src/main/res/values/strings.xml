@@ -1,0 +1,4 @@
+<resources>
+    <string name="label_btn_filter">Фильтры</string>
+    <string name="label_btn_prices">График цен</string>
+</resources>

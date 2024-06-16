@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="8dp"
-    android:background="@color/transparent">
+    android:background="@color/secondary_container">
 
     <ImageView
         android:id="@+id/item_search_place_image"
@@ -13,39 +13,32 @@
         android:layout_height="42dp"
         android:scaleType="centerCrop"
         android:clipToOutline="true"
-        android:background="@drawable/rounded_image"
+        android:background="@drawable/background_8dp"
+        android:backgroundTint="@color/separator_first_only"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/item_search_place_town"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:fontFamily="@font/sfpd_semibold"
-        android:textSize="16sp"
-        android:textColor="@color/on_background"
-        tools:text="Стамбул"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/item_search_place_image"/>
+        app:layout_constraintStart_toEndOf="@id/item_search_place_image"
+        style="@style/TextView.Subtitle"
+        tools:text="Стамбул"/>
 
     <TextView
         android:id="@+id/item_search_place_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/sfpd_regular"
-        android:textSize="14sp"
         android:textColor="@color/custom_text_field_background"
         app:layout_constraintTop_toBottomOf="@id/item_search_place_town"
         app:layout_constraintStart_toStartOf="@id/item_search_place_town"
-        android:text="@string/search_text_description"/>
+        android:text="@string/search_text_description"
+        style="@style/TextView.Basic.Regular"/>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
         android:layout_marginTop="8dp"
         android:background="@color/custom_text_field_background"
         app:layout_constraintTop_toBottomOf="@id/item_search_place_image"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/Separator"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
