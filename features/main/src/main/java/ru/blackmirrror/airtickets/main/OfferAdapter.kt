@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.blackmirrror.airtickets.common.utils.TextFormatter.toBeautifulPrice
+import ru.blackmirrror.airtickets.common.utils.TextFormatter
 import ru.blackmirrror.airtickets.data.models.Offer
 
 class OfferAdapter: ListAdapter<Offer, OfferAdapter.OfferViewHolder>(OfferItemCallback()) {
@@ -30,7 +30,7 @@ class OfferAdapter: ListAdapter<Offer, OfferAdapter.OfferViewHolder>(OfferItemCa
             image.setImageDrawable(offer.image)
             name.text = offer.title
             town.text = offer.town
-            price.text = offer.price?.toBeautifulPrice() ?: ""
+            price.text = TextFormatter.priceToPatternString(offer.price)
         }
     }
 }

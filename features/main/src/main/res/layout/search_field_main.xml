@@ -11,38 +11,38 @@
     android:layout_margin="16dp">
 
     <ImageView
-        android:id="@+id/search_icon"
+        android:id="@+id/main_search_back"
         style="@style/SearchImageButton"
         android:src="@drawable/ic_search"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/search_from"
+        app:layout_constraintEnd_toStartOf="@id/main_search_from"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/search_from"
+        android:id="@+id/main_search_from"
         style="@style/TextView.Subtitle.EditText"
         android:hint="@string/hint_search_from"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/search_icon"
+        app:layout_constraintStart_toEndOf="@id/main_search_back"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Москва" />
 
     <View
-        android:id="@+id/search_separator"
+        android:id="@+id/main_search_separator"
         android:layout_marginVertical="8dp"
-        app:layout_constraintBottom_toTopOf="@id/search_to"
-        app:layout_constraintStart_toStartOf="@id/search_from"
-        app:layout_constraintTop_toBottomOf="@id/search_from"
+        app:layout_constraintBottom_toTopOf="@id/main_search_to"
+        app:layout_constraintStart_toStartOf="@id/main_search_from"
+        app:layout_constraintTop_toBottomOf="@id/main_search_from"
         style="@style/Separator"/>
 
     <EditText
-        android:id="@+id/search_to"
+        android:id="@+id/main_search_to"
         style="@style/TextView.Subtitle.EditText"
         android:hint="@string/hint_search_to"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/search_from"
-        app:layout_constraintTop_toBottomOf="@id/search_separator" />
+        app:layout_constraintStart_toStartOf="@id/main_search_from"
+        app:layout_constraintTop_toBottomOf="@id/main_search_separator" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

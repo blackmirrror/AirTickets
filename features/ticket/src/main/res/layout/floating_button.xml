@@ -8,7 +8,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        android:id="@+id/btn_filter"
+        android:id="@+id/ticket_btn_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_btn_filter"
@@ -17,7 +17,7 @@
         style="@style/TextView.Basic.Italic.FloatingButtonTicket"/>
 
     <TextView
-        android:id="@+id/btn_price_chart"
+        android:id="@+id/ticket_btn_price_chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_btn_prices"

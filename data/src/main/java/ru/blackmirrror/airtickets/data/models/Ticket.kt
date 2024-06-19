@@ -1,5 +1,7 @@
 package ru.blackmirrror.airtickets.data.models
 
+import java.util.Date
+
 data class Ticket (
     val id              : Int?         = null,
     val badge           : String?      = null,
@@ -7,7 +9,7 @@ data class Ticket (
     val providerName    : String?      = null,
     val company         : String?      = null,
     val departure       : Departure?   = Departure(),
-    val arrival         : Arrival?     = Arrival(),
+    val arrival         : Departure?     = Departure(),
     val hasTransfer     : Boolean?     = null,
     val hasVisaTransfer : Boolean?     = null,
     val luggage         : Luggage?     = Luggage(),
@@ -26,14 +28,8 @@ data class Luggage (
     val price      : Int?     = null
 )
 
-data class Arrival (
-    val town    : String? = null,
-    val date    : String? = null,
-    val airport : String? = null
-)
-
 data class Departure (
     val town    : String? = null,
-    val date    : String? = null,
+    val date    : Date? = null,
     val airport : String? = null
 )

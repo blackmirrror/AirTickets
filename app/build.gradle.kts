@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.androidx.navigation.safeargs)
 }
 
 android {
@@ -28,6 +29,14 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://run.mocky.io/\"")
+        }
+        release {
+            buildConfigField("String", "BASE_URL", "\"https://run.mocky.io/\"")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

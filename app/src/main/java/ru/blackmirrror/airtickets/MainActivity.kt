@@ -1,25 +1,22 @@
 package ru.blackmirrror.airtickets
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import ru.blackmirrror.airtickets.common.BottomNavigationVisibilityManager
-import ru.blackmirrror.airtickets.common.SearchNavigationHandler
+import ru.blackmirrror.airtickets.common.NavigationHandler
 import ru.blackmirrror.airtickets.databinding.ActivityMainBinding
-import ru.blackmirrror.airtickets.search.SearchFragment
+import ru.blackmirrror.airtickets.flight.FlightFragmentDirections
+import ru.blackmirrror.airtickets.main.MainFragmentDirections
+import ru.blackmirrror.airtickets.search.SearchFragmentDirections
+import java.util.Date
 
 
-class MainActivity : AppCompatActivity(), BottomNavigationVisibilityManager,
-    SearchNavigationHandler {
+class MainActivity : AppCompatActivity(), NavigationHandler {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -27,8 +24,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationVisibilityManager,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
-        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -48,22 +43,33 @@ class MainActivity : AppCompatActivity(), BottomNavigationVisibilityManager,
         binding.bottomNavigation.setupWithNavController(navController)
     }
 
-    override fun showBottomNavigationBar() {
-        binding.separator.visibility = View.VISIBLE
-        binding.bottomNavigation.visibility = View.VISIBLE
-    }
-
-    override fun hideBottomNavigationBar() {
-        binding.separator.visibility = View.GONE
-        binding.bottomNavigation.visibility = View.GONE
-    }
-
-    override fun actionMainFragmentToSearchFragment() {
-        val searchFragment = SearchFragment()
-        searchFragment.show(supportFragmentManager, SearchFragment.TAG)
+    override fun actionMainFragmentToSearchFragment(from: String) {
+        val action = MainFragmentDirections.actionMainFragmentToSearchNavGraph(
+            from
+        )
+        navController.navigate(action)
     }
 
     override fun actionSearchFragmentToPlugSearchFragment() {
-        navController.navigate(R.id.action_mainFragment_to_plugNavGraph)
+        navController.navigate(R.id.action_searchFragment_to_plugFragment)
+    }
+
+    override fun actionSearchFragmentToFlightFragment(from: String, to: String) {
+        val action = SearchFragmentDirections.actionSearchFragmentToFlightFragment(
+            from, to
+        )
+        navController.navigate(action)
+    }
+
+    override fun actionFlightFragmentToTicketFragment(
+        from: String,
+        to: String,
+        date: Date,
+        countPassengers: Int
+    ) {
+        val action = FlightFragmentDirections.actionFlightFragmentToTicketFragment(
+            from, to, date.time, countPassengers
+        )
+        navController.navigate(action)
     }
 }

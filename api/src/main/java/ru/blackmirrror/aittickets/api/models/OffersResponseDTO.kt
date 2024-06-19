@@ -3,7 +3,7 @@ package ru.blackmirrror.aittickets.api.models
 import com.google.gson.annotations.SerializedName
 
 data class OffersResponseDTO (
-    @SerializedName("offers" ) val offers : ArrayList<OfferDTO> = arrayListOf()
+    @SerializedName("offers" ) val offers : List<OfferDTO> = listOf()
 )
 
 data class OfferDTO (

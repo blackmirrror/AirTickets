@@ -1,6 +1,5 @@
 package ru.blackmirrror.airtickets.data.models
 
-import ru.blackmirrror.aittickets.api.models.ArrivalDTO
 import ru.blackmirrror.aittickets.api.models.DepartureDTO
 import ru.blackmirrror.aittickets.api.models.HandLuggageDTO
 import ru.blackmirrror.aittickets.api.models.LuggageDTO
@@ -17,8 +16,8 @@ internal fun OfferDTO.toOffer(): Offer {
     )
 }
 
-internal fun TicketsOfferDTO.toTicketsOffer(): TicketsOffer {
-    return TicketsOffer(
+internal fun TicketsOfferDTO.toFlight(): Flight {
+    return Flight(
         id = id,
         title = title,
         timeRange = timeRange,
@@ -34,7 +33,7 @@ internal fun TicketDTO.toTicket(): Ticket {
         providerName = providerName,
         company = company,
         departure = departure?.toDeparture(),
-        arrival = arrival?.toArrival(),
+        arrival = arrival?.toDeparture(),
         hasTransfer = hasTransfer,
         hasVisaTransfer = hasVisaTransfer,
         luggage = luggage?.toLuggage(),
@@ -55,14 +54,6 @@ private fun LuggageDTO.toLuggage(): Luggage {
     return Luggage(
         hasLuggage = hasLuggage,
         price = price?.value
-    )
-}
-
-private fun ArrivalDTO.toArrival(): Arrival {
-    return Arrival(
-        town = town,
-        date = date,
-        airport = airport
     )
 }
 

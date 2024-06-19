@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="place_one">Стамбул</string>
+    <string name="place_two">Сочи</string>
+    <string name="place_three">Пхукет</string>
+    <string name="place_default">Турция</string>
+</resources>

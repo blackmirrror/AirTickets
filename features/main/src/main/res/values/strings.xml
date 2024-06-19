@@ -1,7 +1,4 @@
 <resources>
     <string name="title_main">Поиск дешевых авиабилетов</string>
     <string name="title_music">Музыкально отлететь</string>
-
-    <string name="error_no_connection">Проверьте подключение к интернету</string>
-    <string name="error_server">Ошибка сервера, попробуйте позже</string>
 </resources>

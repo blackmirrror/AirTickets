@@ -4,6 +4,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.io.IOException
 import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit
@@ -28,13 +29,15 @@ object ApiFactory {
         }
     }
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://run.mocky.io/")
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private fun createRetrofit(baseUrl: String): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
-    fun create(): ApiService {
-        return retrofit.create(ApiService::class.java)
+    fun create(baseUrl: String): ApiService {
+        return createRetrofit(baseUrl).create(ApiService::class.java)
     }
 }

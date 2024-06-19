@@ -1,26 +1,28 @@
 package ru.blackmirrror.airtickets.search
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import ru.blackmirrror.airtickets.common.SearchNavigationHandler
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.blackmirrror.airtickets.common.EditTextUtils
+import ru.blackmirrror.airtickets.common.NavConstants
+import ru.blackmirrror.airtickets.common.NavigationHandler
 import ru.blackmirrror.airtickets.search.databinding.FragmentSearchBinding
+import ru.blackmirrror.airtickets.common.R as CommonR
+import ru.blackmirrror.airtickets.data.R as DataR
 
 class SearchFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentSearchBinding
-    private var searchNavigationHandler: SearchNavigationHandler? = null
+    private val viewModel by viewModel<PlacesViewModel>()
+    private var navigationHandler: NavigationHandler? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        searchNavigationHandler = activity as? SearchNavigationHandler
+        navigationHandler = activity as? NavigationHandler
     }
 
     override fun onCreateView(
@@ -30,48 +32,21 @@ class SearchFragment : BottomSheetDialogFragment() {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
 
         setUpRecycler()
+        setUpButtons()
+        setSearchOptions()
 
         return binding.root
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     private fun setUpRecycler() {
         val placesAdapter = PlacesAdapter()
         placesAdapter.submitList(
-            listOf(
-                Place(
-                    1,
-                    requireContext().getDrawable(R.drawable.place1),
-                    getString(R.string.place_one)
-                ),
-                Place(
-                    2,
-                    requireContext().getDrawable(R.drawable.place2),
-                    getString(R.string.place_two)
-                ),
-                Place(
-                    3,
-                    requireContext().getDrawable(R.drawable.place3),
-                    getString(R.string.place_three)
-                )
-            )
+            viewModel.places
         )
         placesAdapter.onPlaceItemClickListener = {
-            binding.placesSearch.searchToPlaces.setText(it.town)
+            binding.placesSearch.placesSearchTo.setText(it.town)
         }
-        binding.recyclerPlaces.adapter = placesAdapter
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setUpButtons()
-        setUpEditText()
-
-//        binding.simpleImage.setOnClickListener {
-//            searchNavigationHandler?.actionSearchFragmentToPlugSearchFragment()
-//            //dismiss()
-//        }
+        binding.placesRecycler.adapter = placesAdapter
     }
 
     private fun setUpButtons() {
@@ -86,40 +61,52 @@ class SearchFragment : BottomSheetDialogFragment() {
                 onPlugFragment()
             }
             searchBtnBall.setOnClickListener {
-                binding.placesSearch.searchToPlaces.setText(R.string.place_default)
+                binding.placesSearch.placesSearchTo.setText(DataR.string.place_default)
             }
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    private fun setUpEditText() {
-        with(binding.placesSearch.searchToPlaces) {
-            setOnTouchListener { v, event ->
-                if (event.action == MotionEvent.ACTION_UP) {
-                    val drawableEnd = this.compoundDrawablesRelative[2]
-                    if (drawableEnd != null) {
-                        val drawableWidth = drawableEnd.bounds.width()
-                        val editTextWidth = this.width
-                        val editTextPaddingEnd = this.paddingEnd
-                        val touchX = event.x
+    private fun setSearchOptions() {
+        initSearch()
 
-                        if (touchX >= editTextWidth - editTextPaddingEnd - drawableWidth) {
-                            this.setText("")
-                            return@setOnTouchListener true
-                        }
-                    }
-                }
-                false
-            }
+        with(binding.placesSearch.placesSearchTo) {
+            setOnTouchListener(EditTextUtils.ClearTextOnTouchListener(this) {
+                this.text = null
+            })
+
+            setOnEditorActionListener(EditTextUtils.OnEditorActionDoneListener {
+                saveValuesBeforeNavigation()
+                if (this.text.isNotEmpty())
+                    navigationHandler?.actionSearchFragmentToFlightFragment(
+                        from = binding.placesSearch.placesSearchFrom.text.toString(),
+                        to = this.text.toString()
+                    )
+            })
         }
+    }
+
+    private fun initSearch() {
+        val from = arguments?.getString(getString(CommonR.string.arg_name_search_from))
+        val to = arguments?.getString(getString(CommonR.string.arg_name_search_to))
+        binding.placesSearch.placesSearchFrom.setText(from)
+        binding.placesSearch.placesSearchTo.setText(to)
     }
 
     private fun onPlugFragment() {
-        searchNavigationHandler?.actionSearchFragmentToPlugSearchFragment()
-        dismiss()
+        saveValuesBeforeNavigation()
+        navigationHandler?.actionSearchFragmentToPlugSearchFragment()
     }
 
-    companion object {
-        const val TAG = "ModalBottomSheet"
+    private fun saveValuesBeforeNavigation() {
+        requireActivity().supportFragmentManager
+            .setFragmentResult(
+                NavConstants.RESULT_STATE_DIALOG,
+                bundleOf(NavConstants.BUNDLE_NAME_STATE to true)
+            )
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        navigationHandler = null
     }
 }

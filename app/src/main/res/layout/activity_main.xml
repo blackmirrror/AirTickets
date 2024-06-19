@@ -11,12 +11,12 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/separator"
+        android:layout_above="@id/bottom_nav_separator"
         app:navGraph="@navigation/bottom_nav_graph"
         app:defaultNavHost="true" />
 
     <View
-        android:id="@+id/separator"
+        android:id="@+id/bottom_nav_separator"
         android:layout_above="@id/bottom_navigation"
         android:backgroundTint="@color/surface_container"
         style="@style/Separator"/>

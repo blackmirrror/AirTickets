@@ -10,7 +10,7 @@
     tools:context=".MainFragment">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/main_title"
         android:paddingBottom="32dp"
         android:layout_gravity="center_horizontal"
         android:maxWidth="200dp"
@@ -26,19 +26,19 @@
         app:cardCornerRadius="16dp">
 
         <include
-            android:id="@+id/search_layout"
+            android:id="@+id/main_search"
             layout="@layout/search_field_main" />
 
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/title_music"
+        android:id="@+id/main_title_music"
         android:paddingBottom="16dp"
         android:text="@string/title_music"
         style="@style/TextView.Title"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_music"
+        android:id="@+id/main_recycler_music"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

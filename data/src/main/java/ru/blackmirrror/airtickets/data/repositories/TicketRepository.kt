@@ -5,11 +5,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import ru.blackmirrror.airtickets.data.models.EmptyData
 import ru.blackmirrror.airtickets.data.models.NoConnection
-import ru.blackmirrror.airtickets.data.models.Offer
 import ru.blackmirrror.airtickets.data.models.ResultState
 import ru.blackmirrror.airtickets.data.models.ServerError
 import ru.blackmirrror.airtickets.data.models.Ticket
-import ru.blackmirrror.airtickets.data.models.toOffer
 import ru.blackmirrror.airtickets.data.models.toTicket
 import ru.blackmirrror.airtickets.data.utils.ApiErrorHandler
 import ru.blackmirrror.airtickets.data.utils.NetworkUtils
@@ -19,7 +17,7 @@ class TicketRepository(
     private val context: Context,
     private val service: ApiService
 ) {
-    fun getOffers(): Flow<ResultState<List<Ticket>>> {
+    fun getTickets(): Flow<ResultState<List<Ticket>>> {
         return ApiErrorHandler.handleErrors {
             flow {
                 emit(ResultState.Loading())

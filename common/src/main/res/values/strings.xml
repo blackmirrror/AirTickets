@@ -2,4 +2,12 @@
 <resources>
     <string name="hint_search_from">Откуда - Москва</string>
     <string name="hint_search_to">Куда - Турция</string>
+
+    <string name="error_no_connection">Проверьте подключение к интернету</string>
+    <string name="error_server">Ошибка сервера, попробуйте позже</string>
+
+    <string name="arg_name_search_from">from</string>
+    <string name="arg_name_search_to">to</string>
+    <string name="arg_name_date">date</string>
+    <string name="arg_name_count_passengers">count_passengers</string>
 </resources>

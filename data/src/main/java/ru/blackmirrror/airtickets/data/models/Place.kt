@@ -1,4 +1,4 @@
-package ru.blackmirrror.airtickets.search
+package ru.blackmirrror.airtickets.data.models
 
 import android.graphics.drawable.Drawable
 

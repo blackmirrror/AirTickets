@@ -5,4 +5,5 @@
     <string name="label_passengers_default">1, эконом</string>
 
     <string name="label_right_flights">Прямые рейсы</string>
+    <string name="label_btn_see_all_tickets">Посмотреть все билеты</string>
 </resources>

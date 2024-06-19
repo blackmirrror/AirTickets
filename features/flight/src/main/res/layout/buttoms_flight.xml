@@ -13,12 +13,12 @@
         android:drawableStart="@drawable/ic_add"
         android:text="@string/label_return_default"
         android:layout_marginEnd="8dp"
-        style="@style/TextView.Basic.Italic.ButtomFlight"/>
+        style="@style/TextView.Basic.Italic.ButtonFlight"/>
 
     <TextView
         android:id="@+id/flight_departure_date"
         android:layout_marginEnd="8dp"
-        style="@style/TextView.Basic.Italic.ButtomFlight"
+        style="@style/TextView.Basic.Italic.ButtonFlight"
         tools:text="24 фев, сб"/>
 
     <TextView
@@ -26,11 +26,11 @@
         android:drawableStart="@drawable/ic_profile"
         android:text="@string/label_passengers_default"
         android:layout_marginEnd="8dp"
-        style="@style/TextView.Basic.Italic.ButtomFlight"/>
+        style="@style/TextView.Basic.Italic.ButtonFlight"/>
 
-<!--    <TextView-->
-<!--        android:id="@+id/flight_filter"-->
-<!--        android:drawableStart="@drawable/ic_filter"-->
-<!--        android:text="@string/label_filter_default"-->
-<!--        style="@style/ButtomFlight"/>-->
+    <TextView
+        android:id="@+id/flight_filter"
+        android:drawableStart="@drawable/ic_filter"
+        android:text="@string/label_filter_default"
+        style="@style/TextView.Basic.Italic.ButtonFlight"/>
 </LinearLayout>

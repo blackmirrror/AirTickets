@@ -5,14 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import ru.blackmirrror.airtickets.plug.databinding.FragmentPlugSearchBinding
 
 class PlugSearchFragment : Fragment() {
+
+    private lateinit var binding: FragmentPlugSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_plug_search, container, false)
+    ): View {
+        binding = FragmentPlugSearchBinding.inflate(inflater, container, false)
+        setUpBackButton()
+        return binding.root
+    }
+
+    private fun setUpBackButton() {
+        binding.plugBtnBack.setOnClickListener {
+            activity?.onBackPressedDispatcher?.onBackPressed()
+        }
     }
 }

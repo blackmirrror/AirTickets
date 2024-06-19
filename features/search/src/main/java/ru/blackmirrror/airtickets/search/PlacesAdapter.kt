@@ -8,9 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class PlacesAdapter: ListAdapter<Place, PlacesAdapter.PlacesViewHolder>(PlacesItemCallback()) {
+class PlacesAdapter: ListAdapter<ru.blackmirrror.airtickets.data.models.Place, PlacesAdapter.PlacesViewHolder>(PlacesItemCallback()) {
 
-    var onPlaceItemClickListener: ((Place) -> Unit)? = null
+    var onPlaceItemClickListener: ((ru.blackmirrror.airtickets.data.models.Place) -> Unit)? = null
 
     class PlacesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val town = itemView.findViewById<TextView>(R.id.item_search_place_town)

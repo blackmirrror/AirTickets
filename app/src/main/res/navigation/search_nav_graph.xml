@@ -2,17 +2,63 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/search_nav_graph"
-    app:startDestination="@id/plugSearchTwoFragment">
+    app:startDestination="@id/searchFragment">
+
+    <dialog
+        android:id="@+id/searchFragment"
+        android:name="ru.blackmirrror.airtickets.search.SearchFragment"
+        android:label="@string/label_search">
+        <action android:id="@+id/action_searchFragment_to_plugFragment"
+            app:destination="@id/plugSearchFragment"/>
+        <action android:id="@+id/action_searchFragment_to_flightFragment"
+            app:destination="@id/flightFragment">
+            <argument
+                android:name="from"
+                app:argType="string"
+                app:nullable="false"/>
+            <argument
+                android:name="to"
+                app:argType="string"
+                app:nullable="false"/>
+        </action>
+    </dialog>
+
 
     <fragment
-        android:id="@+id/plugSearchTwoFragment"
-        android:name="ru.blackmirrror.airtickets.plug.PlugSearchTwoFragment"
-        android:label="@string/label_search">
+        android:id="@+id/plugSearchFragment"
+        android:name="ru.blackmirrror.airtickets.plug.PlugSearchFragment"
+        android:label="@string/label_plug">
     </fragment>
 
-<!--    <fragment-->
-<!--        android:id="@+id/plugSearchFragment"-->
-<!--        android:name="ru.blackmirrror.airtickets.plug.PlugSearchFragment"-->
-<!--        android:label="@string/label_plug" />-->
+    <fragment
+        android:id="@+id/flightFragment"
+        android:name="ru.blackmirrror.airtickets.flight.FlightFragment"
+        android:label="@string/label_flight">
+        <action android:id="@+id/action_flightFragment_to_ticketFragment"
+            app:destination="@id/ticketFragment">
+            <argument
+                android:name="from"
+                app:argType="string"
+                app:nullable="false"/>
+            <argument
+                android:name="to"
+                app:argType="string"
+                app:nullable="false"/>
+            <argument
+                android:name="date"
+                app:argType="long"
+                app:nullable="false"/>
+            <argument
+                android:name="count_passengers"
+                app:argType="integer"
+                app:nullable="false"/>
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/ticketFragment"
+        android:name="ru.blackmirrror.airtickets.ticket.TicketFragment"
+        android:label="@string/label_ticket">
+    </fragment>
 
 </navigation>

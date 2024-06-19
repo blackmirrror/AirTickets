@@ -34,13 +34,18 @@
 
     <TextView
         android:id="@+id/item_flight_times"
+        android:layout_width="match_parent"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="4dp"
+        android:maxLines="1"
+        android:ellipsize="end"
         app:layout_constraintStart_toStartOf="@id/item_flight_airline"
         app:layout_constraintTop_toBottomOf="@id/item_flight_airline"
         style="@style/TextView.Basic.Regular"
-        tools:text="07:00 09:10 10:00 11:00 12:00 13:00..."/>
+        tools:text="07:00 09:10 10:00 11:00 12:00 13:00 dfg df dfg dfg df df gdf df df fg hfg fg fg fg "/>
 
     <View
+        android:id="@+id/item_flight_separator"
         android:layout_marginTop="8dp"
         android:background="@color/custom_text_field_background"
         app:layout_constraintTop_toBottomOf="@id/item_flight_times"

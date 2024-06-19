@@ -9,4 +9,6 @@
 
     <string name="label_search">Поиск</string>
     <string name="label_plug">Заглушка</string>
+    <string name="label_flight">Рейсы</string>
+    <string name="label_ticket">Билеты</string>
 </resources>

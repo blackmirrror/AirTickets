@@ -5,7 +5,6 @@
     app:startDestination="@id/navigation_airtickets">
 
     <include app:graph="@navigation/search_nav_graph" />
-    <include app:graph="@navigation/plug_nav_graph" />
 
     <fragment
         android:id="@+id/navigation_airtickets"
@@ -13,10 +12,12 @@
         android:label="@string/label_airtickets" >
         <action
             android:id="@+id/action_mainFragment_to_searchNavGraph"
-            app:destination="@id/search_nav_graph" />
-        <action
-            android:id="@+id/action_mainFragment_to_plugNavGraph"
-            app:destination="@id/plug_nav_graph" />
+            app:destination="@id/search_nav_graph">
+            <argument
+                android:name="from"
+                app:argType="string"
+                app:nullable="false"/>
+        </action>
     </fragment>
 
     <fragment
