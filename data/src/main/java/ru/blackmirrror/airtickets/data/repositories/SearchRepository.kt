@@ -1,6 +1,6 @@
 package ru.blackmirrror.airtickets.data.repositories
 
-import ru.blackmirrror.airtickets.data.storage.LastSearchSharedPreferences
+import ru.blackmirrror.airtickets.data.sharedPrefs.LastSearchSharedPreferences
 
 class SearchRepository(
     private val lastSearchSharedPreferences: LastSearchSharedPreferences

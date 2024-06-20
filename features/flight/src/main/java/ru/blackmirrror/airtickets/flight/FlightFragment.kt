@@ -128,6 +128,8 @@ class FlightFragment : Fragment() {
             }
 
             is ResultState.Error -> {
+                if (resultState.data != null)
+                    flightAdapter.submitList(resultState.data)
                 binding.flightProgress.visibility = View.GONE
             }
         }

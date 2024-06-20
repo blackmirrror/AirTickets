@@ -79,10 +79,21 @@ class MainFragment : Fragment() {
 
             is ResultState.Error -> {
                 binding.mainProgress.visibility = View.GONE
+                if (resultState.data != null) {
+                    offerAdapter.submitList(resultState.data)
+                }
                 if (!viewModel.hasErrorShown) {
-                    when (resultState.error) {
-                        is NoConnection -> showToast(getString(CommonR.string.error_no_connection))
-                        is ServerError -> showToast(getString(CommonR.string.error_server))
+                    if (resultState.data != null) {
+                        when (resultState.error) {
+                            is NoConnection -> showToast(getString(CommonR.string.error_no_connection_with_data))
+                            is ServerError -> showToast(getString(CommonR.string.error_server_with_data))
+                        }
+                    }
+                    else {
+                        when (resultState.error) {
+                            is NoConnection -> showToast(getString(CommonR.string.error_no_connection))
+                            is ServerError -> showToast(getString(CommonR.string.error_server))
+                        }
                     }
                     viewModel.hasErrorShown = true
                 }

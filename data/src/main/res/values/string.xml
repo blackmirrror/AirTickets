@@ -4,4 +4,6 @@
     <string name="place_two">Сочи</string>
     <string name="place_three">Пхукет</string>
     <string name="place_default">Турция</string>
+
+    <string name="folder_cache_offers">offers</string>
 </resources>

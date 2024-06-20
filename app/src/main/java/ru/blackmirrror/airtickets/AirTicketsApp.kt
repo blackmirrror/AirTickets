@@ -5,6 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import ru.blackmirrror.airtickets.di.appModule
 import ru.blackmirrror.airtickets.di.dataModule
+import ru.blackmirrror.airtickets.di.dispatcherModule
 
 class AirTicketsApp: Application() {
     override fun onCreate() {
@@ -12,7 +13,7 @@ class AirTicketsApp: Application() {
 
         startKoin {
             androidContext(this@AirTicketsApp)
-            modules(appModule, dataModule)
+            modules(appModule, dataModule, dispatcherModule)
         }
     }
 }

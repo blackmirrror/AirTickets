@@ -97,6 +97,8 @@ class TicketFragment : Fragment() {
             }
 
             is ResultState.Error -> {
+                if (resultState.data != null)
+                    ticketAdapter.submitList(resultState.data)
                 binding.ticketProgress.visibility = View.GONE
             }
         }

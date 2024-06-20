@@ -32,14 +32,14 @@ class FlightAdapter :
             airline.text = flight.title
             price.text = TextFormatter.priceToPatternString(flight.price)
             times.text = TextFormatter.timesToString(flight.timeRange)
-            when (flight.id?.rem(3)) {
+            when (flight.id) {
                 1 -> indicator.backgroundTintList =
                     ContextCompat.getColorStateList(indicator.context, CommonR.color.red)
 
-                2 -> indicator.backgroundTintList =
+                10 -> indicator.backgroundTintList =
                     ContextCompat.getColorStateList(indicator.context, CommonR.color.blue)
 
-                0 -> indicator.backgroundTintList =
+                30 -> indicator.backgroundTintList =
                     ContextCompat.getColorStateList(indicator.context, CommonR.color.white)
             }
         }

@@ -1,4 +1,4 @@
-package ru.blackmirrror.airtickets.data.storage
+package ru.blackmirrror.airtickets.data.sharedPrefs
 
 import android.content.Context
 import android.content.SharedPreferences

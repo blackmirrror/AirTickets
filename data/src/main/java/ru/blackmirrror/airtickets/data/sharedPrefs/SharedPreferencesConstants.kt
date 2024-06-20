@@ -1,4 +1,4 @@
-package ru.blackmirrror.airtickets.data.storage
+package ru.blackmirrror.airtickets.data.sharedPrefs
 
 object SharedPreferencesConstants {
     const val PREF_KEY_LAST_SEARCH = "last_search"

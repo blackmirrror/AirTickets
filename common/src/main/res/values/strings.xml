@@ -6,6 +6,9 @@
     <string name="error_no_connection">Проверьте подключение к интернету</string>
     <string name="error_server">Ошибка сервера, попробуйте позже</string>
 
+    <string name="error_no_connection_with_data">Нет соединения, загрузим сохраненные данные</string>
+    <string name="error_server_with_data">Ошибка сервера, загрузим сохраненные данные</string>
+
     <string name="arg_name_search_from">from</string>
     <string name="arg_name_search_to">to</string>
     <string name="arg_name_date">date</string>
