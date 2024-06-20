@@ -1,4 +1,4 @@
-package ru.blackmirrror.airtickets.common
+package ru.blackmirrror.airtickets.common.utils
 
 import android.annotation.SuppressLint
 import android.view.KeyEvent

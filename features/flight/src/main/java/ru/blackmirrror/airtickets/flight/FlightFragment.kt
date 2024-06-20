@@ -11,8 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.blackmirrror.airtickets.common.EditTextUtils
 import ru.blackmirrror.airtickets.common.NavigationHandler
+import ru.blackmirrror.airtickets.common.utils.EditTextUtils
 import ru.blackmirrror.airtickets.common.utils.TextFormatter.getDayOfWeek
 import ru.blackmirrror.airtickets.common.utils.TextFormatter.getMonthName
 import ru.blackmirrror.airtickets.data.models.Flight

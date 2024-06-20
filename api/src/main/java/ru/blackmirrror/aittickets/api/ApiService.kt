@@ -8,12 +8,12 @@ import ru.blackmirrror.aittickets.api.models.TicketsResponseDTO
 
 interface ApiService {
 
-    @GET("v3/214a1713-bac0-4853-907c-a1dfc3cd05fd")
+    @GET("v3/ad9a46ba-276c-4a81-88a6-c068e51cce3a")
     suspend fun getOffers(): Response<OffersResponseDTO>
 
-    @GET("v3/7e55bf02-89ff-4847-9eb7-7d83ef884017")
+    @GET("v3/38b5205d-1a3d-4c2f-9d77-2f9d1ef01a4a")
     suspend fun getTicketsOffers(): Response<TicketsOffersResponseDTO>
 
-    @GET("v3/670c3d56-7f03-4237-9e34-d437a9e56ebf")
+    @GET("v3/c0464573-5a13-45c9-89f8-717436748b69")
     suspend fun getTickets(): Response<TicketsResponseDTO>
 }

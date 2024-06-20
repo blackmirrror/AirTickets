@@ -16,6 +16,7 @@ import ru.blackmirrror.airtickets.common.utils.TextFormatter
 import ru.blackmirrror.airtickets.data.models.ResultState
 import ru.blackmirrror.airtickets.data.models.Ticket
 import ru.blackmirrror.airtickets.ticket.databinding.FragmentTicketBinding
+import ru.blackmirrror.airtickets.ticket.utils.VerticalItemDecoration
 import java.util.Date
 import ru.blackmirrror.airtickets.common.R as CommonR
 
@@ -68,6 +69,9 @@ class TicketFragment : Fragment() {
 
     private fun setUpRecycler() {
         ticketAdapter = TicketAdapter()
+        binding.ticketRecycler.addItemDecoration(
+            VerticalItemDecoration(resources.getDimensionPixelSize(R.dimen.item_space))
+        )
         binding.ticketRecycler.adapter = ticketAdapter
     }
 

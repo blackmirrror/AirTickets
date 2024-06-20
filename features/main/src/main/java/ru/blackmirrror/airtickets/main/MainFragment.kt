@@ -11,9 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.blackmirrror.airtickets.common.EditTextUtils
-import ru.blackmirrror.airtickets.common.NavConstants.BUNDLE_NAME_STATE
-import ru.blackmirrror.airtickets.common.NavConstants.RESULT_STATE_DIALOG
+import ru.blackmirrror.airtickets.common.utils.EditTextUtils
 import ru.blackmirrror.airtickets.common.NavigationHandler
 import ru.blackmirrror.airtickets.data.models.NoConnection
 import ru.blackmirrror.airtickets.data.models.Offer
@@ -32,8 +30,6 @@ class MainFragment : Fragment() {
     private val viewModel by viewModel<MainViewModel>()
     private lateinit var offerAdapter: OfferAdapter
 
-    private var stateDialog: Boolean? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         navigationHandler = activity as? NavigationHandler
@@ -50,20 +46,6 @@ class MainFragment : Fragment() {
         setSearchOptions()
 
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        getBottomSheetState()
-    }
-
-    private fun getBottomSheetState() {
-        requireActivity().supportFragmentManager
-            .setFragmentResultListener(RESULT_STATE_DIALOG, viewLifecycleOwner) { _, bundle ->
-                stateDialog = bundle.getBoolean(BUNDLE_NAME_STATE)
-            }
-        if (stateDialog != null && stateDialog == true)
-            navigateToSearch()
     }
 
     private fun setUpRecycler() {
@@ -97,9 +79,12 @@ class MainFragment : Fragment() {
 
             is ResultState.Error -> {
                 binding.mainProgress.visibility = View.GONE
-                when (resultState.error) {
-                    is NoConnection -> showToast(getString(CommonR.string.error_no_connection))
-                    is ServerError -> showToast(getString(CommonR.string.error_server))
+                if (!viewModel.hasErrorShown) {
+                    when (resultState.error) {
+                        is NoConnection -> showToast(getString(CommonR.string.error_no_connection))
+                        is ServerError -> showToast(getString(CommonR.string.error_server))
+                    }
+                    viewModel.hasErrorShown = true
                 }
             }
         }

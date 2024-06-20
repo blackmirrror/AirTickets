@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
     android:background="@color/transparent"
     android:clipChildren="false"
     android:clipToPadding="false">
@@ -13,10 +12,10 @@
         android:id="@+id/item_ticket_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:background="@drawable/background_8dp"
         android:backgroundTint="@color/surface_container"
         android:padding="16dp"
-        android:layout_marginTop="16dp"
         android:clipChildren="false"
         android:clipToPadding="false">
 

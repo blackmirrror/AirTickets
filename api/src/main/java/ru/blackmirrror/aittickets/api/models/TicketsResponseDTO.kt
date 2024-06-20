@@ -1,8 +1,6 @@
 package ru.blackmirrror.aittickets.api.models
 
 import com.google.gson.annotations.SerializedName
-import kotlinx.serialization.Serializable
-import ru.blackmirrror.aittickets.api.utils.DateSerializer
 import java.util.Date
 
 data class TicketsResponseDTO (
@@ -32,12 +30,12 @@ data class HandLuggageDTO (
 
 data class LuggageDTO (
     @SerializedName("has_luggage" ) val hasLuggage : Boolean? = null,
-    @SerializedName("price"       ) val price      : PriceDTO?   = PriceDTO()
+    @SerializedName("price"       ) val price      : PriceDTO? = PriceDTO()
 )
 
 data class DepartureDTO (
     @SerializedName("town"    ) val town    : String? = null,
-    @SerializedName("date"    ) @Serializable(with = DateSerializer::class) val date    : Date? = null,
+    @SerializedName("date"    ) val date    : Date?   = null,
     @SerializedName("airport" ) val airport : String? = null
 )
 

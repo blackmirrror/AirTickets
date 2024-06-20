@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.blackmirrror.airtickets.common.EditTextUtils
-import ru.blackmirrror.airtickets.common.NavConstants
+import ru.blackmirrror.airtickets.common.utils.EditTextUtils
 import ru.blackmirrror.airtickets.common.NavigationHandler
 import ru.blackmirrror.airtickets.search.databinding.FragmentSearchBinding
 import ru.blackmirrror.airtickets.common.R as CommonR
@@ -75,7 +74,6 @@ class SearchFragment : BottomSheetDialogFragment() {
             })
 
             setOnEditorActionListener(EditTextUtils.OnEditorActionDoneListener {
-                saveValuesBeforeNavigation()
                 if (this.text.isNotEmpty())
                     navigationHandler?.actionSearchFragmentToFlightFragment(
                         from = binding.placesSearch.placesSearchFrom.text.toString(),
@@ -93,16 +91,7 @@ class SearchFragment : BottomSheetDialogFragment() {
     }
 
     private fun onPlugFragment() {
-        saveValuesBeforeNavigation()
         navigationHandler?.actionSearchFragmentToPlugSearchFragment()
-    }
-
-    private fun saveValuesBeforeNavigation() {
-        requireActivity().supportFragmentManager
-            .setFragmentResult(
-                NavConstants.RESULT_STATE_DIALOG,
-                bundleOf(NavConstants.BUNDLE_NAME_STATE to true)
-            )
     }
 
     override fun onDestroy() {

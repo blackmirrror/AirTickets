@@ -20,6 +20,8 @@ class MainViewModel(
     private val _offers = MutableStateFlow<ResultState<List<Offer>>>(ResultState.Loading())
     val offers: StateFlow<ResultState<List<Offer>>> = _offers
 
+    var hasErrorShown = false
+
     init {
         loadOffers()
     }

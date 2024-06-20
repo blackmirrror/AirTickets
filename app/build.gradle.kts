@@ -19,24 +19,20 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://run.mocky.io/\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"https://run.mocky.io/\"")
         }
     }
     buildFeatures {
         viewBinding = true
-    }
-    buildTypes {
-        debug {
-            buildConfigField("String", "BASE_URL", "\"https://run.mocky.io/\"")
-        }
-        release {
-            buildConfigField("String", "BASE_URL", "\"https://run.mocky.io/\"")
-        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
